@@ -70,7 +70,7 @@ module Unidecoder
   end
 
   define_normalize("unicode") {|str| Unicode.normalize_C(str)}
-  define_normalize("active_support") {|str| ActiveSupport::Multibyte::Chars.new(str).normalize(:c).to_s}
+  define_normalize("active_support") {|str| ActiveSupport::Multibyte::Chars.new(str).unicode_normalize(:nfc).to_s}
   define_normalize {|str| str}
 
   def decode_char(char)
